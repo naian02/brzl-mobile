@@ -5,16 +5,24 @@
             <div class="col s6">
                 <div class="content-left">
                     <a href="#slide-out" data-activates="slide-out" class="sidebar"><i class="fa fa-bars"></i></a>
-                    <a href="#"><h1>BRZL Agencia</h1></a>
+                    <a href="#"><img src="frontend/images/logo/brzl.jpg" style="width: 50px;" alt=""></a>
                 </div>
             </div>
             <div class="col s6">
                 <div class="content-right">
-                    <a href="#slide-out-right" data-activates="slide-out-right" class="sidebar-search"><i class="fa fa-search"></i></a>
-                    <a href="#slide-out-cart" data-activates="slide-out-cart" class="sidebar-cart">
-                        <i class="fa fa-shopping-cart"></i>
-                        <sup>3</sup>
-                    </a>
+                    @if (Route::has('login'))
+                    <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                        @auth
+                            <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                        @else
+                            <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Login </a>
+    
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"> Register</a>
+                            @endif
+                        @endauth
+                    </div>
+                @endif
                 </div>
             </div>
         </div>

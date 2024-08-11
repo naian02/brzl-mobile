@@ -19,7 +19,7 @@
         @include('frontend.common.navbar')
         @include('frontend.common.sidebar')
 
-        
+        @yield('home')
 
         @include('frontend.common.footer')
 

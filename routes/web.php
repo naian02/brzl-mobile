@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.frontend');
-});
+//Route::get('/', function () {
+//   return view('layouts.frontend');
+//});
+
+//Front End
+Route::get('/', [FrontEndController::class, 'home'])->name('layouts.frontend');
+Route::get('/', [FrontEndController::class, 'slider'])->name('frontend.home.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
